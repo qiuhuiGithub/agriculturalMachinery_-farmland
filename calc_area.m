@@ -1,11 +1,11 @@
 databaseName = 'GpcsData';
-databaseurl=strcat('jdbc:sqlserver://125.211.202.97:2866;');
+databaseurl=strcat('jdbc:sqlserver://æœåŠ¡å™¨åœ°å€:ç«¯å£å·;');
 driver='com.microsoft.sqlserver.jdbc.SQLServerDriver';
-username='hit';
-password='1994,,forever';
+username='ç”¨æˆ·å';
+password='å¯†ç ';
 conn=database(databaseName, username, password, driver, databaseurl);
 if(isempty(conn.URL))
-    fprintf('Êı¾İ¿âÁ´½ÓÊ§°Ü');
+    fprintf('æ•°æ®åº“é“¾æ¥å¤±è´¥');
     exit
 end
 ping(conn);
@@ -38,8 +38,8 @@ for i =1:1:device_len
     if ~exist(path)
       [s,mess,messid] = mkdir('C:\Users\Administrator\Desktop\trail\',final_time);
     end
-    if(flag == 0)%¹Ø±Õ¿ª¹Ø
-        %32´ú±í¿Õ¸ñµÄasciiÂë
+    if(flag == 0)%å…³é—­å¼€å…³
+        %32ä»£è¡¨ç©ºæ ¼çš„asciiç 
         str_1 = strcat('select longitude,latitude,speed,angle,deep2 from ',32,databasename,'.dbo.pointsDetail where deviceNo=',device_no,' ',' and flag=128 and gpsTime between ''',final_time, ' 00:00:00''', ' and ''',final_time,' 23:59:59''',' order by gpsTime');
         %curs=exec(conn, 'select longitude,latitude,speed,angle,deep2 from GpcsData1508.dbo.pointsDetail where deviceNo=31003 and flag=128 and gpsTime between ''2015-08-12 00:00:00'' and ''2015-08-12 23:59:59'' order by gpsTime');
         curs= exec(conn,str_1);
@@ -63,7 +63,7 @@ for i =1:1:device_len
         v1 = num2(:,3);
         x=num2(:,1)/3600000;
         y=num2(:,2)/3600000;       
-        title1 = strcat(device_no,'-',final_time,'¹ì¼£Í¼');
+        title1 = strcat(device_no,'-',final_time,'è½¨è¿¹å›¾');
         figure(10)
         hold off;
         plot(x,y);
@@ -84,7 +84,7 @@ for i =1:1:device_len
              continue;
         end
         
-        %%%%%%%%%%%%%%%%%%%%%%%%×ª»»³É´óµØ×ø±ê
+        %%%%%%%%%%%%%%%%%%%%%%%%è½¬æ¢æˆå¤§åœ°åæ ‡
         lat = num2(:,2)/3600000;
         lon = num2(:,1)/3600000;
         % L=dlmread('position.txt');  % txt-style,your filename,data format-->latitude,longitude
@@ -183,7 +183,7 @@ for i =1:1:device_len
             x1=num2(:,1)/3600000;
             y1=num2(:,2)/3600000;
         end  
-        title2 = strcat(device_no,'-',final_time,'¸ûµØ¹ì¼£');
+        title2 = strcat(device_no,'-',final_time,'è€•åœ°è½¨è¿¹');
         figure(2)
         hold off;
         plot(x1,y1,'.');
@@ -191,7 +191,7 @@ for i =1:1:device_len
         axis equal;
         gengdi = strcat('C:\Users\Administrator\Desktop\trail\',final_time,'\',title2);
         print(2, '-dpng', gengdi);
-        %%%%%%%%%%%%%%%×ª»»³É´óµØ×ø±ê
+        %%%%%%%%%%%%%%%è½¬æ¢æˆå¤§åœ°åæ ‡
         lat = num2(:,2)/3600000;
         lon = num2(:,1)/3600000;
         % L=dlmread('position.txt');  % txt-style,your filename,data format-->latitude,longitude
@@ -228,7 +228,7 @@ for i =1:1:device_len
           curs = exec(conn,str);
           close(curs);
         % % % % % % % figure(5)    
-    else%´ò¿ª¿ª¹Ø
+    else%æ‰“å¼€å¼€å…³
         str_1 = strcat('select longitude,latitude,speed,angle,deep2 from ',32,databasename,'.dbo.pointsDetail where deviceNo=',device_no,' ',' and flag=128 and gpsTime between ''',final_time, ' 00:00:00''', ' and ''',final_time,' 23:59:59''',' order by gpsTime');
         %curs=exec(conn, 'select longitude,latitude,speed,angle,deep2 from GpcsData1508.dbo.pointsDetail where deviceNo=31003 and flag=128 and gpsTime between ''2015-08-12 00:00:00'' and ''2015-08-12 23:59:59'' order by gpsTime');
         curs= exec(conn,str_1);
@@ -252,7 +252,7 @@ for i =1:1:device_len
         v1 = num2(:,3);
         x=num2(:,1)/3600000;
         y=num2(:,2)/3600000;       
-        title1 = strcat(device_no,'-',final_time,'¹ì¼£Í¼');
+        title1 = strcat(device_no,'-',final_time,'è½¨è¿¹å›¾');
         figure(10)
         hold off;
         plot(x,y);
@@ -273,7 +273,7 @@ for i =1:1:device_len
              continue;
         end
       
-        %%%%%%%%%%%%%%%%%%%%%%%%×ª»»³É´óµØ×ø±ê
+        %%%%%%%%%%%%%%%%%%%%%%%%è½¬æ¢æˆå¤§åœ°åæ ‡
         lat = num2(:,2)/3600000;
         lon = num2(:,1)/3600000;
         % L=dlmread('position.txt');  % txt-style,your filename,data format-->latitude,longitude
@@ -374,7 +374,7 @@ for i =1:1:device_len
             x1=num2(:,1)/3600000;
             y1=num2(:,2)/3600000;
         end  
-        title2 = strcat(device_no,'-',final_time,'¸ûµØ¹ì¼£');
+        title2 = strcat(device_no,'-',final_time,'è€•åœ°è½¨è¿¹');
         figure(2)
         hold off;
         plot(x1,y1,'.');
@@ -382,7 +382,7 @@ for i =1:1:device_len
         axis equal;
         gengdi = strcat('C:\Users\Administrator\Desktop\trail\',final_time,'\',title2);
         print(2, '-dpng', gengdi);
-        %%%%%%%%%%%%%%%×ª»»³É´óµØ×ø±ê
+        %%%%%%%%%%%%%%%è½¬æ¢æˆå¤§åœ°åæ ‡
         lat = num2(:,2)/3600000;
         lon = num2(:,1)/3600000;
         % L=dlmread('position.txt');  % txt-style,your filename,data format-->latitude,longitude
@@ -444,7 +444,7 @@ for i =1:1:device_len
             num3(index,:) = [];
             x1=num3(:,1)/3600000;
             y1=num3(:,2)/3600000;
-            %%%%%%%%%%%%%%%×ª»»³É´óµØ×ø±ê
+            %%%%%%%%%%%%%%%è½¬æ¢æˆå¤§åœ°åæ ‡
             lat = num3(:,2)/3600000;
             lon = num3(:,1)/3600000;
             % L=dlmread('position.txt');  % txt-style,your filename,data format-->latitude,longitude
@@ -461,8 +461,8 @@ for i =1:1:device_len
             R = R/1000;
             x2= R(:,1);
             y2 =R(:,2);
-            %´øÓĞ´«¸ĞÆ÷µÄ»úÆ÷µÄ¾ÛºÏÍ¼
-            %         title3 = strcat(device_no,'-',final_time,'¾ÛºÏÍ¼');
+            %å¸¦æœ‰ä¼ æ„Ÿå™¨çš„æœºå™¨çš„èšåˆå›¾
+            %         title3 = strcat(device_no,'-',final_time,'èšåˆå›¾');
             %         figure(11)
             %         hold off;
             %         plot(x,y,'.');
